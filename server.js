@@ -18,6 +18,7 @@ if (process.env.NODE_ENV === "production") {
 
 //custom routes
 app.use("/users", require("./routes/userRoutes"));
+app.use("/books", require("./routes/bookRoutes"));
 
 app.get("*", (req, res) => {
 	res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
