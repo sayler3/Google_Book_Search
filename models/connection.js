@@ -14,4 +14,4 @@ mongoose.connect(
 	}
 );
 
-module.exports = dbConnection;
+module.exports = mongoose;
