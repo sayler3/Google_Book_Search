@@ -8,13 +8,18 @@ const Login = () => {
 		setform({ ...form, [e.target.name]: e.target.value });
 	};
 
-	const submit = (e) => {
+	const submitForm = async (e) => {
 		e.preventDefault();
-		console.log("hi");
+		try {
+			const loginRes = await axios.post("/users/login", form);
+			console.log(loginRes);
+		} catch (err) {
+			console.log(err.response);
+		}
 	};
 	return (
 		<div className="row container">
-			<form onSubmit={submit} class="col s12">
+			<form onSubmit={submitForm} className="col s12">
 				<div className="row">
 					<div className="input-field col s12">
 						<input
