@@ -63,7 +63,7 @@ const Register = () => {
 							className="validate"
 							name="passwordCheck"
 						/>
-						<label>Password Check</label>
+						<label>Confirm Password</label>
 					</div>
 				</div>
 				<button
