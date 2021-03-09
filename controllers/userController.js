@@ -1,6 +1,7 @@
 const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+require("dotenv").config();
 
 module.exports = {
 	register: async (req, res) => {
@@ -40,6 +41,39 @@ module.exports = {
 			res.json(saveUser);
 		} catch (error) {
 			res.status(500).json({ msg: error });
+		}
+	},
+
+	login: async (req, res) => {
+		try {
+			const { email, password } = req.body;
+
+			if (!email || !password) {
+				res.status(400).json({ msg: "all fields where not meet" });
+			}
+
+			const user = await User.findOne({ email: email });
+
+			if (!email) {
+				res.status(400).json({ msg: "no match for User" });
+			}
+
+			const isMatch = await bcrypt.compare(password, user.password);
+
+			if (!isMatch) {
+				res.status(400).json({ msg: "Wrong password" });
+			}
+
+			const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+				expiresIn: "24h",
+			});
+
+			res.json({
+				token,
+				user: { id: user._id, displayName: user.displayName },
+			});
+		} catch (err) {
+			res.status(500).json({ msg: err });
 		}
 	},
 };
