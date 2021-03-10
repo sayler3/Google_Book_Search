@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import UserContext from "../Context/userContext";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 const Login = () => {
 	const [form, setform] = useState();
+	const { userData, setUserData } = useContext(UserContext);
+	const history = useHistory();
 
 	const onChange = (e) => {
 		setform({ ...form, [e.target.name]: e.target.value });
@@ -11,12 +15,25 @@ const Login = () => {
 	const submitForm = async (e) => {
 		e.preventDefault();
 		try {
-			const loginRes = await axios.post("/users/login", form);
-			console.log(loginRes);
+			const { data } = await axios.post("/users/login", form);
+			console.log(data);
+
+			setUserData({
+				token: data.token,
+				user: data.user,
+			});
+
+			localStorage.setItem("auth-token", data.token);
+			history.push("/");
 		} catch (err) {
 			console.log(err.response);
 		}
 	};
+
+	useEffect(() => {
+		console.log(userData);
+	}, []);
+
 	return (
 		<div className="row container">
 			<form onSubmit={submitForm} className="col s12">

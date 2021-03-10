@@ -12,7 +12,7 @@ import Search from "./Pages/Search";
 import UserContext from "./Context/userContext";
 
 function App() {
-	const [userData, setuserData] = useState({
+	const [userData, setUserData] = useState({
 		user: undefined,
 		token: undefined,
 	});
@@ -33,7 +33,7 @@ function App() {
 	return (
 		<div className="App">
 			<Router>
-				<UserContext.Provider value={{ userData, setuserData }}>
+				<UserContext.Provider value={{ userData, setUserData }}>
 					<Switch>
 						<Route path="/login" component={Login} />
 						<Route path="/register" component={Register} />
