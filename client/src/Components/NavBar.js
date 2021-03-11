@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = (props) => {
 	return (
 		<>
 			<nav>
@@ -10,14 +11,16 @@ const NavBar = () => {
 						data-target="slide-out"
 						className="sidenav-trigger show-on-large"
 					>
-						<i class="material-icons">menu</i>
+						<i className="material-icons">menu</i>
 					</a>
 					<ul id="nav-mobile" className="right hide-on-med-and-down">
 						<li>
-							<a href="">Home</a>
+							<Link to={"/save"}>Save</Link>
 						</li>
 						<li>
-							<a href="">About</a>
+							<Link to={"/search"} onClick={props.logout}>
+								Logout
+							</Link>
 						</li>
 					</ul>
 				</div>

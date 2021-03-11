@@ -8,14 +8,14 @@ const Search = (props) => {
 
 	useEffect(() => {
 		if (!userData.user) history.push("/login");
+
+		console.log(userData.user);
 	}, [userData.user, history]);
 
 	return (
 		<div>
 			<h1>hello there</h1>
-			<a onClick={props.logout} className="waves-effect waves-light btn-small">
-				<i className="material-icons left">cloud</i>button
-			</a>
+			<h3>Your name is: {userData.user?.displayName}</h3>
 		</div>
 	);
 };

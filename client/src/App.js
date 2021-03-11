@@ -22,13 +22,16 @@ function App() {
 		if (token === null) {
 			localStorage.setItem("auth-token", "");
 		} else {
-			const userRes = await axios.get("/users", {
-				headers: { "x-auth-token": token },
-			});
+			try {
+				const userRes = await axios.get("/users", {
+					headers: { "x-auth-token": token },
+				});
 
-			console.log("User", userRes);
-
-			setUserData({ token, user: userRes.data });
+				// console.log("User", userRes);
+				setUserData({ token, user: userRes.data });
+			} catch (err) {
+				console.log("User needs to login");
+			}
 		}
 	};
 
@@ -46,14 +49,19 @@ function App() {
 	return (
 		<div className="App">
 			<Router>
+				{!userData.user ? (
+					<>
+						<Link to="/login">Login</Link> <Link to="/register">Register</Link>
+					</>
+				) : (
+					<NavBar logout={logout} />
+				)}
 				<UserContext.Provider value={{ userData, setUserData }}>
 					<Switch>
 						<Route path="/login" component={Login} />
 						<Route path="/register" component={Register} />
 						<Route path="/saved" component={Saved} />
-						<Route path="/">
-							<Search logout={logout} />
-						</Route>
+						<Route path="/" component={Search} />
 					</Switch>
 				</UserContext.Provider>
 			</Router>
