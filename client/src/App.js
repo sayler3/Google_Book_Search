@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "materialize-css/dist/css/materialize.min.css";
-import M from "materialize-css/dist/js/materialize.min.js";
 import NavBar from "./Components/NavBar";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
@@ -42,8 +41,6 @@ function App() {
 
 	useEffect(() => {
 		checkLoggin();
-		let sidenav = document.querySelector("#slide-out");
-		M.Sidenav.init(sidenav, {});
 	}, []);
 
 	return (

@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import M from "materialize-css/dist/js/materialize.min.js";
 
 const NavBar = (props) => {
+	useEffect(() => {
+		let sidenav = document.querySelector("#slide-out");
+		M.Sidenav.init(sidenav, {});
+	}, []);
 	return (
 		<>
 			<nav>
@@ -15,7 +20,10 @@ const NavBar = (props) => {
 					</a>
 					<ul id="nav-mobile" className="right hide-on-med-and-down">
 						<li>
-							<Link to={"/save"}>Save</Link>
+							<Link to={"/search"}>Search</Link>
+						</li>
+						<li>
+							<Link to={"/saved"}>Saved</Link>
 						</li>
 						<li>
 							<Link to={"/search"} onClick={props.logout}>

@@ -13,7 +13,7 @@ const Search = (props) => {
 	}, [userData.user, history]);
 
 	return (
-		<div>
+		<div className="container">
 			<h1>hello there</h1>
 			<h3>Your name is: {userData.user?.displayName}</h3>
 		</div>
