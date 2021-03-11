@@ -32,6 +32,11 @@ function App() {
 		}
 	};
 
+	const logout = () => {
+		setUserData({ token: undefined, user: undefined });
+		localStorage.setItem("auth-token", "");
+	};
+
 	useEffect(() => {
 		checkLoggin();
 		let sidenav = document.querySelector("#slide-out");
@@ -46,7 +51,9 @@ function App() {
 						<Route path="/login" component={Login} />
 						<Route path="/register" component={Register} />
 						<Route path="/saved" component={Saved} />
-						<Route path="/" component={Search} />
+						<Route path="/">
+							<Search logout={logout} />
+						</Route>
 					</Switch>
 				</UserContext.Provider>
 			</Router>

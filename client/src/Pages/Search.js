@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import UserContext from "../Context/userContext";
 import { useHistory } from "react-router-dom";
 
-const Search = () => {
+const Search = (props) => {
 	const { userData } = useContext(UserContext);
 	const history = useHistory();
 
@@ -13,6 +13,9 @@ const Search = () => {
 	return (
 		<div>
 			<h1>hello there</h1>
+			<a onClick={props.logout} className="waves-effect waves-light btn-small">
+				<i className="material-icons left">cloud</i>button
+			</a>
 		</div>
 	);
 };
