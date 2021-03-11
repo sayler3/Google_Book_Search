@@ -17,10 +17,18 @@ function App() {
 		token: undefined,
 	});
 
-	const checkLoggin = () => {
+	const checkLoggin = async () => {
 		let token = localStorage.getItem("auth-token");
 		if (token === null) {
 			localStorage.setItem("auth-token", "");
+		} else {
+			const userRes = await axios.get("/users", {
+				headers: { "x-auth-token": token },
+			});
+
+			console.log("User", userRes);
+
+			setUserData({ token, user: userRes.data });
 		}
 	};
 
