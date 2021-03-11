@@ -21,6 +21,7 @@ module.exports = {
 				discription: req.body.discription,
 				image: req.body.image,
 				link: req.body.link,
+				userId: req.user,
 			});
 			res.json(await saveBooks.save());
 		} catch (error) {

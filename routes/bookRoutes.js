@@ -1,4 +1,6 @@
 const router = require("express").Router();
+const auth = require("../middleware/auth");
+
 const {
 	test,
 	getAll,
@@ -6,8 +8,8 @@ const {
 	deleteBook,
 } = require("../controllers/bookController");
 
-router.route("/books").get(getAll).post(saveBook).put(test);
+router.route("/books", auth).get(getAll).post(saveBook).put(test);
 
-router.route("/books/:id").delete(deleteBook);
+router.route("/books/:id", auth).delete(deleteBook);
 
 module.exports = router;

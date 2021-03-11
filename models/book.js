@@ -19,6 +19,10 @@ const bookSchema = new mongoose.Schema({
 	link: {
 		type: String,
 	},
+	userId: {
+		type: String,
+		required: true,
+	},
 });
 
 module.exports = Book = mongoose.model("book", bookSchema);
