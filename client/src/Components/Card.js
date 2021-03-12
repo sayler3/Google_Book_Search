@@ -20,7 +20,9 @@ const Card = (props) => {
 									<p>{book.volumeInfo.description}</p>
 								</div>
 								<div className="card-action">
-									<a href={book.volumeInfo.imageLinks}>This is a link</a>
+									<a target="blank" href={book.volumeInfo.previewLink}>
+										Preview
+									</a>
 								</div>
 							</div>
 						</div>
