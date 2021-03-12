@@ -18,7 +18,7 @@ module.exports = {
 			const saveBooks = new Book({
 				title: req.body.title,
 				authors: req.body.authors,
-				discription: req.body.discription,
+				description: req.body.description,
 				image: req.body.image,
 				link: req.body.link,
 				userId: req.user,

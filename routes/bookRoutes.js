@@ -8,8 +8,12 @@ const {
 	deleteBook,
 } = require("../controllers/bookController");
 
-router.route("/books", auth).get(getAll).post(saveBook).put(test);
+router.get("/books", auth, getAll);
 
-router.route("/books/:id", auth).delete(deleteBook);
+router.post("/books", auth, saveBook);
+
+router.put("/books", test);
+
+router.delete("/books/:id", auth, deleteBook);
 
 module.exports = router;

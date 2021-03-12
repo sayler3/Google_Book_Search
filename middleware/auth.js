@@ -15,6 +15,7 @@ const auth = (req, res, next) => {
 			return res.status(401).json({ msg: "Verification failed" });
 		}
 
+		// req.user = verified.id;
 		req.user = verified.id;
 		next();
 	} catch (err) {
