@@ -17,7 +17,8 @@ const Search = (props) => {
 	const onSearch = async (e) => {
 		e.preventDefault();
 		try {
-			const { data } = await API.getBooks();
+			const userQuery = query;
+			const { data } = await API.getBooks(userQuery);
 
 			setbooks(data.items);
 		} catch (err) {
