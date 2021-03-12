@@ -22,11 +22,21 @@ const Card = (props) => {
 							<div className="card-stacked">
 								<div className="card-content">
 									<p>{book.volumeInfo.description}</p>
+									<br />
+									<p>Authors: {book.volumeInfo.authors}</p>
 								</div>
 								<div className="card-action">
 									<a target="blank" href={book.volumeInfo.previewLink}>
 										Preview
 									</a>
+									<button
+										className="btn waves-effect waves-light"
+										type="submit"
+										name="action"
+									>
+										Save
+										<i class="material-icons right">save</i>
+									</button>
 								</div>
 							</div>
 						</div>
