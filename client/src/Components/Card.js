@@ -6,7 +6,11 @@ const Card = (props) => {
 		<>
 			{books &&
 				books.map((book, index) => (
-					<div key={index} className="col s12 m7">
+					<div
+						style={{ boxShadow: "rgb(153 153 153) 0px 10px 10px" }}
+						key={index}
+						className="col s12 m7"
+					>
 						<h3 className="header">{book.volumeInfo.title}</h3>
 						<div className="card horizontal">
 							<div className="card-image">

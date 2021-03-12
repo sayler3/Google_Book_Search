@@ -32,22 +32,27 @@ const Search = (props) => {
 	}, [userData.user, history]);
 
 	return (
-		<div className="container">
-			<h3>Your name is: {userData.user?.displayName}</h3>
+		<div>
+			<div className="background"></div>
 			<br />
-			<form onSubmit={onSearch} className="col s12">
-				<div className="input-field col s8">
-					<i className="material-icons prefix">search</i>
-					<input
-						onChange={onChange}
-						name="search"
-						type="text"
-						className="validate"
-					/>
-					<label>Search for a book</label>
-				</div>
-			</form>
-			<Card data={books} />
+
+			<div className="container">
+				<h3>Your name is: {userData.user?.displayName}</h3>
+				<br />
+				<form onSubmit={onSearch} className="col s12">
+					<div className="input-field col s8">
+						<i className="material-icons prefix">search</i>
+						<input
+							onChange={onChange}
+							name="search"
+							type="text"
+							className="validate"
+						/>
+						<label>Search for a book</label>
+					</div>
+				</form>
+				<Card data={books} />
+			</div>
 		</div>
 	);
 };
