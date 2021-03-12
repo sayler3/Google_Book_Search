@@ -12,7 +12,7 @@ const NavBar = (props) => {
 			<nav>
 				<div className="container">
 					<a
-						href="#"
+						href="/"
 						data-target="slide-out"
 						className="sidenav-trigger show-on-large"
 					>
@@ -35,13 +35,13 @@ const NavBar = (props) => {
 			</nav>
 			<ul className="sidenav" id="slide-out">
 				<li>
-					<a href="#item1">Item 1</a>
+					<a href="/item1">Item 1</a>
 				</li>
 				<li>
-					<a href="#item1">Item 2</a>
+					<a href="/item1">Item 2</a>
 				</li>
 				<li>
-					<a href="#item1">Item 3</a>
+					<a href="/item1">Item 3</a>
 				</li>
 			</ul>
 		</>
