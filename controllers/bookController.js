@@ -13,6 +13,16 @@ module.exports = {
 		}
 	},
 
+	getAllByUser: async (req, res) => {
+		try {
+			const books = await Book.find({ userId: req.params.id });
+			res.json(books);
+		} catch (error) {
+			console.log(error);
+			res.send(error);
+		}
+	},
+
 	saveBook: async (req, res) => {
 		try {
 			const saveBooks = new Book({

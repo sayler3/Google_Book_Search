@@ -6,9 +6,12 @@ const {
 	getAll,
 	saveBook,
 	deleteBook,
+	getAllByUser,
 } = require("../controllers/bookController");
 
 router.get("/books", auth, getAll);
+
+router.get("/books/:id", getAllByUser);
 
 router.post("/books", auth, saveBook);
 
