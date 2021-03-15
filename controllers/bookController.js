@@ -42,8 +42,8 @@ module.exports = {
 
 	deleteBook: async (req, res) => {
 		try {
-			const destroyBook = Book.findById({ _id: req.params.id });
-			res.json(destroyBook);
+			const destroyBook = await Book.findByIdAndDelete(req.params.id);
+			res.json(await destroyBook);
 		} catch (error) {
 			console.log(error);
 			res.send(error);
