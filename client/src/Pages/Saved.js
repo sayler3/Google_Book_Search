@@ -9,25 +9,24 @@ const Saved = () => {
 	const { userData } = useContext(UserContext);
 	const history = useHistory();
 	const [userID] = useState(userData.user?.id);
-	console.log(userID);
 
-	useEffect(() => {
-		if (!userData.user) history.push("/login");
-
-		console.log(userData.user);
-	}, [userData.user, history]);
-
-	useEffect(async () => {
+	const getSaved = async () => {
 		const authToken = localStorage.getItem("auth-token");
 
 		const savedBooks = await axios.get(`/api/books/${userID}`, {
 			headers: { "x-auth-token": authToken },
 		});
 
-		console.log(savedBooks.data);
-
 		setbooks(savedBooks.data);
-	}, [userID]);
+	};
+
+	useEffect(() => {
+		if (!userData.user) history.push("/login");
+	}, [userData.user, history]);
+
+	useEffect(() => {
+		getSaved();
+	});
 
 	return (
 		<div className="container">

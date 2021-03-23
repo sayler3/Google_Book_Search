@@ -8,11 +8,9 @@ const SavedCard = (props) => {
 		try {
 			const id = e.target.getAttribute("data-value");
 			const authToken = localStorage.getItem("auth-token");
-			const deleteBook = await axios.delete(`/api/books/${id}`, {
+			await axios.delete(`/api/books/${id}`, {
 				headers: { "x-auth-token": authToken },
 			});
-			console.log(deleteBook);
-			console.log(id);
 		} catch (err) {
 			console.log(err);
 		}
