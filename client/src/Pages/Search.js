@@ -38,7 +38,7 @@ const Search = () => {
 			<br />
 
 			<div className="container">
-				<h3>Your name is: {userData.user?.displayName}</h3>
+				<h3>Welcome: {userData.user?.displayName}</h3>
 				<br />
 				<form onSubmit={onSearch} className="col s12">
 					<div className="input-field col s8">
