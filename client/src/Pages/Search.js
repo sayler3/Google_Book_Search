@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import API from "../Utils/API";
 import Card from "../Components/Card";
 
-const Search = (props) => {
+const Search = () => {
 	const [query, setquery] = useState(null);
 	const [books, setbooks] = useState(null);
 	const { userData } = useContext(UserContext);
@@ -29,7 +29,7 @@ const Search = (props) => {
 	useEffect(() => {
 		if (!userData.user) history.push("/login");
 
-		console.log(userData.user);
+		// console.log(userData.user);
 	}, [userData.user, history]);
 
 	return (
