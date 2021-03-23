@@ -11,7 +11,7 @@ const {
 
 router.get("/books", auth, getAll);
 
-router.get("/books/:id", getAllByUser);
+router.get("/books/:id", auth, getAllByUser);
 
 router.post("/books", auth, saveBook);
 
