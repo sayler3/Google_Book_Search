@@ -1,8 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import M from "materialize-css/dist/js/materialize.min.js";
+import UserContext from "../Context/userContext";
 
 const NavBar = (props) => {
+	const { userData } = useContext(UserContext);
+
 	useEffect(() => {
 		let sidenav = document.querySelector("#slide-out");
 		M.Sidenav.init(sidenav, {});
@@ -35,13 +38,17 @@ const NavBar = (props) => {
 			</nav>
 			<ul className="sidenav" id="slide-out">
 				<li>
-					<a href="/item1">Item 1</a>
+					<h4>Welcome: {userData.user?.displayName}</h4>
 				</li>
 				<li>
-					<a href="/item1">Item 2</a>
-				</li>
-				<li>
-					<a href="/item1">Item 3</a>
+					<button
+						className="btn waves-effect waves-light"
+						type="submit"
+						name="action"
+					>
+						Delete Account
+						<i class="material-icons right">delete_sweep</i>
+					</button>
 				</li>
 			</ul>
 		</>

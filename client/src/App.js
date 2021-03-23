@@ -45,23 +45,25 @@ function App() {
 
 	return (
 		<div className="App">
-			<Router>
-				{!userData.user ? (
-					<>
-						<Link to="/login">Login</Link> <Link to="/register">Register</Link>
-					</>
-				) : (
-					<NavBar logout={logout} />
-				)}
-				<UserContext.Provider value={{ userData, setUserData }}>
+			<UserContext.Provider value={{ userData, setUserData }}>
+				<Router>
+					{!userData.user ? (
+						<>
+							<Link to="/login">Login</Link>{" "}
+							<Link to="/register">Register</Link>
+						</>
+					) : (
+						<NavBar logout={logout} />
+					)}
+
 					<Switch>
 						<Route path="/login" component={Login} />
 						<Route path="/register" component={Register} />
 						<Route path="/saved" component={Saved} />
 						<Route path="/" component={Search} />
 					</Switch>
-				</UserContext.Provider>
-			</Router>
+				</Router>
+			</UserContext.Provider>
 		</div>
 	);
 }
