@@ -4,7 +4,7 @@
 
 ## Description
 
-This is a full-stack application where a user can signup for an account and login for for a user specific experence search the Google Books API. Once logged in the user can preview and save books that they have searched for to a data base. Books saved by the user can also be deleted or removed from the saved books list.
+This is a full-stack application where a user can signup for an account and login for a user specific experience search the Google Books API. Once logged in the user can preview and save books that they have searched for to a data base. Books saved by the user can also be deleted or removed from the saved books list.
 
 This app has been deployed via Heroku to view click bellow:
 
